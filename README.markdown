@@ -1,0 +1,1 @@
+Inspector Gadget should let you have greater insight into your application and libraries to help you identify abuses of ruby's dynamic nature.
