@@ -1,4 +1,4 @@
-require 'lib/object_defintion_events.rb'
+require File.dirname(__FILE__) + '/object_defintion_events.rb'
 
 module InspectorGadget
   class DefinitionEventDispatcher

@@ -1,4 +1,4 @@
-require "lib/object_defintion_event.rb"
+require File.dirname(__FILE__) + "/object_defintion_event.rb"
 
 module InspectorGadget
   class ClassEdit < ObjectDefinitionEvent

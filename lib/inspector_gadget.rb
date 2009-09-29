@@ -1,4 +1,4 @@
-require 'lib/definition_event_dispatcher.rb'
+require File.dirname(__FILE__) + '/definition_event_dispatcher.rb'
 
 module InspectorGadget
   METHOD_PREFIX = "__com_aaronblohowiak_inspector_gadget"
