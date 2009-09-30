@@ -11,6 +11,49 @@ You can also use -e to try it out
 
     $ ruby -r inspector_gadget.rb -e'class A; end; def A.pants; puts "hello"; end;'
 
+## longer example ##
+
+Let's say we have a file, `example.rb`
+
+    strings = %w{Dynamic Programming Sometimes Sucks}
+
+    def ScopedClassFactoryFactory(name)
+      new_scope = Module.new 
+      Kernel.const_set name, new_scope
+      def new_scope.new_scoped_class(name)
+        new_class = Class.new
+        self.const_set(name, new_class)
+        class << new_class
+          def foo
+            puts "huh?"
+          end
+        end
+      end
+
+      new_scope.instance_eval do
+        def foo
+          puts "hoo"
+        end
+      end
+      return new_scope
+    end
+
+    b = ScopedClassFactoryFactory(strings[0])
+    c = b.new_scoped_class(strings[1])
+
+and we run 
+  
+    ruby -r inspector_gadget.rb example.rb 
+
+We will see
+
+    Added method ScopedClassFactoryFactory to Object in example.rb:3
+    Dynamically defined constant Dynamic in example.rb:5
+    Added singleton method new_scoped_class to Kernel::Dynamic in example.rb:6
+    Added singleton method foo to Kernel::Dynamic in example.rb:17
+    Dynamically defined constant Programming in example.rb:8
+    Added singleton method foo to Kernel::Dynamic::Programming in example.rb:10 
+
 ## Source Code ##
 
 Main repository is at [http://github.com/aaronblohowiak/inspector_gadget/](http://github.com/aaronblohowiak/inspector_gadget/)
