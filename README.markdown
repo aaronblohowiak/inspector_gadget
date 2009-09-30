@@ -18,7 +18,8 @@ Let us also assume that we have a file, example.rb, that contains:
 
     strings = %w{Dynamic Programming Sometimes Sucks}
 
-    def ScopedClassFactoryFactory(name)
+    # this code intentionally gross to demonstrate inspector_gadget
+    def ScopedClassFactoryFactory(name) 
       new_scope = Module.new 
       Kernel.const_set name, new_scope
       def new_scope.new_scoped_class(name)
