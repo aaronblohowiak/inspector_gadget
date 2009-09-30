@@ -84,7 +84,11 @@ But does not have the correct line numbers after BlankSlate is introduced:
     Added method split_names to Pathname in /opt/local/lib/ruby/gems/1.8/gems/builder-2.1.2/lib/blankslate.rb:84
     Added method split to Pathname in /opt/local/lib/ruby/gems/1.8/gems/builder-2.1.2/lib/blankslate.rb:84
 
-This isn't an issue for my uses, so I may not fix this in the near future. Please send me your patches / pull requests.
+Also, there is no support for the removal of methods / undefinition.
+
+I didn't respect 80 character line widths =/
+
+These aren't blockers for my uses, so I may not fix this in the near future. Please send me your patches / pull requests.
 
 ## Contributors ##
   * [Aaron Blohowiak](http://github.com/aaronblohowiak)

@@ -23,7 +23,7 @@ module InspectorGadget
     end
 
     def self.description
-      "#{self.to_s}.new \n" #"("+args.inspect+")"
+      "#{self.to_s}.new \n"
     end
 
     def self.location

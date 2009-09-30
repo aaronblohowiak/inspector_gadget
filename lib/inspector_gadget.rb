@@ -36,11 +36,9 @@ module InspectorGadget
   def self.alias_methods_for_easy_tracing
     {
       Kernel => [:method_missing, :eval, :class],
-      Object => [ :extend, :object_id, :singleton_method_added, 
-                  :singleton_method_removed, :singleton_method_undefined, :to_s],
+      Object => [ :extend, :object_id, :singleton_method_added, :to_s],
       Class => [:define_method],
-      Module => [:const_set,  :append_features, :included, :alias_method, 
-                  :method_added, :method_undefined, :method_removed, :to_s]
+      Module => [:const_set,  :append_features, :included, :alias_method, :method_added, :to_s]
     }.each_pair do |klass, ary|
       klass.send( :include, MetaprogrammingWatchdog )
       klass.send( :watch, *ary.map{|e| e.to_s } )
