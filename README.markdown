@@ -13,7 +13,8 @@ You can also use -e to try it out
 
 ## longer example ##
 
-Let's say we have a file, `example.rb`
+Let's say we see in our code Dynamic::Programming.foo and Dynamic.foo being called, but we arent sure how it is all being defined.
+Let us also assume that we have a file, example.rb, that contains:
 
     strings = %w{Dynamic Programming Sometimes Sucks}
 
@@ -43,7 +44,7 @@ Let's say we have a file, `example.rb`
 
 and we run 
   
-    ruby -r inspector_gadget.rb example.rb 
+    ruby -r inspector_gadget.rb example.rb
 
 We will see
 
@@ -53,6 +54,8 @@ We will see
     Added singleton method foo to Kernel::Dynamic in example.rb:17
     Dynamically defined constant Programming in example.rb:8
     Added singleton method foo to Kernel::Dynamic::Programming in example.rb:10 
+
+As you can see, the linear print-out is much easier to follow than trying to unwind the source above.  This is an even greater boon when there are modules being mixed-in and extending classes and so on.
 
 ## Source Code ##
 
